@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Ventas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Sistema de Ventas</h1>
+    <p>Inventario, ventas y reportes</p>
+  </header>
+
+  <main class="container">
+    <div class="top-grid">
+    <section class="panel">
+      <h2>Registrar producto en inventario</h2>
+      <div class="form-grid">
+        <input id="barcode" type="text" placeholder="Código de barras">
+        <input id="productName" type="text" placeholder="Nombre del producto">
+        <input id="price" type="number" min="0" step="0.01" placeholder="Precio">
+        <input id="stock" type="number" min="0" step="1" placeholder="Cantidad">
+        <button id="saveProduct">Guardar producto</button>
+      </div>
+      <p class="hint">Conecta el lector de códigos de barras y escanea en el campo de código. La mayoría de lectores USB funcionan como teclado.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Realizar venta</h2>
+      <div class="sale-bar">
+        <input id="saleBarcode" type="text" placeholder="Escanea o escribe el código de barras" autofocus>
+        <input id="saleQuantity" type="number" min="1" value="1">
+        <button id="addToCart">Agregar</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Producto</th><th>Precio</th><th>Cant.</th><th>Subtotal</th><th></th></tr>
+          </thead>
+          <tbody id="cartBody"></tbody>
+        </table>
+      </div>
+
+      <div class="checkout">
+        <label class="dte-option"><input type="checkbox" id="generarDte" checked> Preparar factura electrónica DTE - Consumidor Final</label>
+        <div><strong>Total: $<span id="cartTotal">0.00</span></strong></div>
+        <input id="cashReceived" type="number" min="0" step="0.01" placeholder="Dinero recibido">
+        <div class="change">Cambio: $<span id="change">0.00</span></div>
+        <button id="completeSale">Cobrar venta</button>
+      </div>
+    </section>
+    </div>
+
+    <div class="bottom-grid">
+    <section class="panel">
+      <h2>Inventario</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Código</th><th>Producto</th><th>Precio</th><th>Stock</th><th>Acción</th></tr>
+          </thead>
+          <tbody id="inventoryBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Resumen de ventas</h2>
+      <div class="cards">
+        <article><span>Hoy</span><strong>$<span id="todayTotal">0.00</span></strong></article>
+        <article><span>Esta semana</span><strong>$<span id="weekTotal">0.00</span></strong></article>
+        <article><span>Este mes</span><strong>$<span id="monthTotal">0.00</span></strong></article>
+        <article><span>Ventas hoy</span><strong id="todayCount">0</strong></article>
+      </div>
+      <button id="clearSales" class="danger">Borrar historial de ventas</button>
+    </section>
+    </div>
+  </main>
+
+  <footer>Proyecto local — los datos se guardan en el navegador mediante localStorage.</footer>
+  <script src="js/dte.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

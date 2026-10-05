@@ -1,0 +1,12 @@
+require('dotenv').config({ path: '../.env' });
+const express = require('express');
+const cors = require('cors');
+const dteRoutes = require('./routes/dte.routes');
+const facturaRoutes = require('./routes/factura.routes');
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/api/dte', dteRoutes);
+app.use('/api/facturas', facturaRoutes);
+app.get('/api/health', (_, res) => res.json({ ok:true, servicio:'DTE', ambiente:process.env.DTE_AMBIENTE || 'TEST' }));
+app.listen(process.env.PORT || 3000, () => console.log('Backend DTE activo en puerto ' + (process.env.PORT || 3000)));

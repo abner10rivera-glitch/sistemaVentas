@@ -1,0 +1,23 @@
+{
+  "appId": "com.veltrix.sistemaventas",
+  "productName": "Sistema de Ventas DTE",
+  "directories": {
+    "output": "dist"
+  },
+  "files": [
+    "www/**/*",
+    "electron-main.js",
+    "package.json"
+  ],
+  "win": {
+    "target": [
+      "nsis",
+      "portable"
+    ],
+    "icon": "build/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  }
+}

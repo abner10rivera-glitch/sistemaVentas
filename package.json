@@ -1,0 +1,22 @@
+{
+  "name": "sistema-ventas-dte-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de ventas DTE para Android y PC",
+  "scripts": {
+    "android": "npx cap open android",
+    "android:sync": "npx cap sync android",
+    "android:build": "cd android && gradlew.bat assembleDebug",
+    "desktop": "electron .",
+    "desktop:dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.0",
+    "@capacitor/core": "^7.4.0",
+    "@capacitor/cli": "^7.4.0"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  }
+}

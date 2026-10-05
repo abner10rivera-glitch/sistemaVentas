@@ -1,0 +1,8 @@
+{
+  "appId": "com.veltrix.sistemaventas",
+  "appName": "Sistema de Ventas",
+  "webDir": "www",
+  "server": {
+    "cleartext": true
+  }
+}
